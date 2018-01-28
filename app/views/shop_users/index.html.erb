@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+ <h2 class="heading" style="border:none"> Users Index</h2>
+ <div class="pull-right">
+  <%= link_to new_shop_user_path, class: "btn btn-info right" do%>
+  <i class="fa fa-plus" aria-hidden="true"></i> New User
+  <% end %>
+</div>
+<table class="table table-striped table-hover table-bordered">
+<thead class="bg-gray">
+    <tr>
+      <th>Name</th>
+      <th>Email id</th>
+      <th>Mobile nUmber</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name%></td>
+        <td><%= user.email%></td>
+        <td><%= user.mobile_number%></td>
+        <td><%= link_to "Show", {:controller => "shop_users", :action => "show"}, method: :get, :class=>"btn btn-xs btn-info" do%>
+            <i class="fa fa-eye" aria-hidden="true", ,  title="Show"></i>
+          <%end%><%= link_to 'Edit', edit_shop_user_path(user) %>
+        <%= link_to 'Destroy', shop_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

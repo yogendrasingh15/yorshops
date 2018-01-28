@@ -1,0 +1,21 @@
+default: &default
+development:
+  adapter: mysql2
+  database: ChatYogi
+  encoding: utf8
+  username: root
+  password: j2ee
+
+test: &test
+  adapter: mysql2
+  database: ChatYogi
+  encoding: utf8
+  username: root
+  password: j2ee
+
+production: &production
+  adapter: mysql2
+  database: ChatYogi
+  encoding: utf8
+  username: root
+  password: j2ee

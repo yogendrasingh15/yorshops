@@ -1,0 +1,82 @@
+<div class="col-md-12">
+<div class="panel">
+  <div class="panel-heading">
+    <h2 class="heading" style="border-bottom:1px solid #ddd;"><%= page_title%></h2>
+  </div>
+  <div class="panel-body">
+   <% action = params[:id].blank? ? shop_users_path : "/shop_users/#{@user.id}" %>
+   <% request = params[:id].blank? ? :post : :patch%>
+  <%= form_with(model: user, url: action, method: request, local: true,class: "form-horizontal") do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= form.label :name, 'Name<span class="text-danger">*</span>'.html_safe, class: 'col-lg-3 control-label' %>
+      <div class="col-lg-9">
+        <%= form.text_field :name, id: :user_name,:placeholder => 'Enter User Name',:required => true,class: "form-control" %>
+      </div>
+   </div>
+     <div class="form-group">
+    <%= form.label :email, 'Email<span class="text-danger">*</span>'.html_safe, class: 'col-lg-3 control-label' %>
+      <div class="col-lg-9">
+        <%= form.text_field :email, id: :user_email,:placeholder => 'Enter Email id',:required => true,class: "form-control" %>
+      </div>
+   </div>
+    <div class="form-group">
+         <%= form.label :password, 'Password<span class="text-danger">*</span>'.html_safe , class: "col-lg-3 control-label" %>
+        <div class="col-lg-9">
+          <%= form.password_field :password, id: :user_password,class: "form-control" %>
+        </div>
+      </div>
+       <div class="form-group">
+         <%= form.label :password_confirmation,'Confirm Password<span class="text-danger">*</span>'.html_safe,class: "col-lg-3 control-label" %>
+        <div class="col-lg-9">
+          <%= form.password_field :password_confirmation, id: :user_password_confirmation,class: "form-control" %>
+        </div>
+      </div>
+     <div class="form-group">
+    <%= form.label :mobile_number, 'Mobile Number<span class="text-danger">*</span>'.html_safe, class: 'col-lg-3 control-label' %>
+      <div class="col-lg-9">
+        <%= form.text_field :mobile_number, id: :user_mobile_number,:placeholder => 'Enter Mobile Number',:required => true,class: "form-control" %>
+      </div>
+   </div>
+        <div class="form-group">
+    <%= form.label :address, 'Address<span class="text-danger">*</span>'.html_safe, class: 'col-lg-3 control-label' %>
+      <div class="col-lg-9">
+        <%= form.text_area :address, id: :user_address,:placeholder => 'Enter Your Address',:required => true,class: "form-control" %>
+      </div>
+   </div>
+     <div class="form-group">
+    <%= form.label :pincode, 'Pincode<span class="text-danger">*</span>'.html_safe, class: 'col-lg-3 control-label' %>
+      <div class="col-lg-9">
+        <%= form.text_field :pincode, id: :user_pincode,:placeholder => 'Enter Pincode',:required => true,class: "form-control" %>
+      </div>
+   </div>
+     <div class="form-group">
+          <%= form.label :user_type, 'User Type<span class="text-danger">*</span>'.html_safe, :class => "col-lg-3 control-label" %>
+          <div class="col-lg-9">
+            <%= form.select :user_type, User::USER_TYPES_ARR, {:prompt=>"--Select User Type--"}, {:id => :account_account_type, :class => "form-control", :required =>  true, :style => "width:100%!important;"} %>
+          </div>
+        </div>
+          <div class="form-group">
+          <%= form.label :status, 'User Status<span class="text-danger">*</span>'.html_safe, :class => "col-lg-3 control-label" %>
+          <div class="col-lg-9">
+            <%= form.select :status, AdminType::STATUS_ARR, {:prompt=>"--Select Status--"}, {:id => :user_status, :class => "form-control", :required =>  true, :style => "width:100%!important;"} %>
+          </div>
+        </div>
+  <div class="actions">
+        <% label = params[:action] == "edit" || params[:action] == "update" ? "Update" : "Create"%>
+        <%= form.submit "#{label}", class: "btn btn-sm btn-info", :onclick => "return validatePincode();" %>&nbsp;<%= link_to 'Cancel', shop_users_path(page: params[:page]), class: "btn btn-sm btn-default" %>
+    </div>
+  </div>
+<% end %>
+</div>
+</div>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+ <html class="no-js" lang="en">
+	<head>
+	<title>Welcome to your yogi's online shop </title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	  <%= action_cable_meta_tag %>
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<div class="modal" id="popup_div" role="modal" aria-labelledby="myModalLabel" ></div>
+
+	</head>
+	<body>
+		<section>
+		<%if notice%>
+		 <div class="alert alert-success" id="success-alert">
+             <button type="button" class="close" data-dismiss="alert">x</button> <%= notice %>
+ 		</div>
+		<%end%>
+		<%if alert%>
+		<div class="alert alert-success" id="success-alert">
+             <button type="button" class="close" data-dismiss="alert">x</button> <%= alert %>
+ 		</div>
+		<%end%>
+		<div id="main-contnet-id">
+			
+		</div>
+			</section>
+	<div id="fh5co-page">
+		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+			<h1 id="fh5co-logo"><a href="index.html"><%= image_tag("yorshops.png")%></a></h1>
+			
+			<nav id="fh5co-main-menu" role="navigation">
+				<ul>
+					<li class="fh5co-active"><%= link_to "Home"%></li>
+					<li><%= link_to "Portfolio"%></li>
+					<li><%= link_to "About"%></li>
+					<li><%= link_to "Contact"%></li>
+					<li><%= link_to "Users", shop_users_path %></li>
+				</ul>
+			</nav>
+
+			<div class="fh5co-footer">
+				<p><small>&copy; chatYogi. All Rights Reserved. <span>Designed by <a href="http://www.yorshops.com/" target="_blank">www.yorshops.com</a> </span></small></p>
+				<ul>
+					<li><a href="#"><i class="icon-facebook"></i></a></li>
+					<li><a href="#"><i class="icon-twitter"></i></a></li>
+					<li><a href="#"><i class="icon-instagram"></i></a></li>
+					<li><a href="#"><i class="icon-linkedin"></i></a></li>
+				</ul>
+			</div>
+		</aside>
+	</div>
+		<div id="fh5co-main">
+			<div class="row">
+				<%= yield %>
+			</div>
+		</div>
+	</body>
+</html>
+
+

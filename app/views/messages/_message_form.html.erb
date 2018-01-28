@@ -1,0 +1,8 @@
+<%= form_with(model: message, local: true, remote: true, authenticity_token: true) do |f| %>
+
+  <%= f.label :your_message %>:
+  <%= f.text_area :content, class: "form-control", data: {textarea: "message"} %>
+
+  <%#= f.hidden_field :chatbox_id, value: chatbox.id %>
+  <%= f.submit "send", class: "btn btn-primary", style: "float:right;", data: {send: "message"} %>
+<% end %>
