@@ -10,3 +10,9 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
 
   speak: (message) ->
 	 @perform 'speak', message: message
+
+  $(document).on 'keypress', '#chat-speak', (event) ->
+  if event.keyCode is 13
+    App.chat.speak(event.target.value)
+    event.target.value = ""
+    event.preventDefault()
