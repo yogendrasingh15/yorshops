@@ -12,10 +12,34 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 	<div class="modal" id="popup_div" role="modal" aria-labelledby="myModalLabel" ></div>
-
+	<div id ="showErrorMsg"></div>
 	</head>
 	<body>
-		<section>
+	<span class="pull-right">
+		<% if current_user.present?%>
+	<div class="dropdown">	
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.name%>
+		<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<li><a href="#" onclick= "changePassword('<%= current_user.id%>')">Change password</a></li>
+			<li><a href="#" data-toggle= "modal" data-target= "#modalUserProfile">User profile</a></li>
+			<li class="font20">
+			<%= link_to "Logout", destroy_user_session_path, :method=> :DELETE,:class=>"fa fa-power-off", data: {confirm: "Are you sure?"}%>
+			</li>
+		</ul>
+	</div>
+	<% end %>
+	<div id="user_nav">
+	  <% if current_user %>
+	    Signed in as <strong><%= current_user.name %></strong>!
+	    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+	  <% else %>
+	    
+	  <% end %>
+	</div>
+	</span>
+		<section style="text-align: center;float: right;width: 80%;">
 		<%if notice%>
 		 <div class="alert alert-success" id="success-alert">
              <button type="button" class="close" data-dismiss="alert">x</button> <%= notice %>
@@ -29,7 +53,7 @@
 		<div id="main-contnet-id">
 			
 		</div>
-			</section>
+ </section>
 	<div id="fh5co-page">
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 			<h1 id="fh5co-logo"><a href="index.html"><%= image_tag("yorshops.png")%></a></h1>
@@ -62,5 +86,9 @@
 		</div>
 	</body>
 </html>
-
+<script type="text/javascript">
+	function changePassword(user_id){
+		$("#popup_div").modal('show');
+	}
+</script>
 

@@ -16,6 +16,9 @@ gem 'devise', '~> 4.3'
 gem 'coffee-rails'
 gem 'puma', '~> 3.4'
 gem 'redis', '~> 4.0', '>= 4.0.1'
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
+gem 'figaro'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

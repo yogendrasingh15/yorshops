@@ -62,7 +62,9 @@ class ShopUsersController < ApplicationController
     end
   end
 
-  def user_login
+   def change_user_password
+    @user= User.find_by_id(params[:user_id])
+    @user.update(password: params[:password],password_confirmation: params[:password_confirmation])
   end
 
   private

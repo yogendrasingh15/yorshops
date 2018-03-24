@@ -1,4 +1,5 @@
 class ChatboxesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_chatbox, only: [:edit, :update, :destroy]
 
   # GET /chatboxes

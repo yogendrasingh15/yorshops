@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :path_names => {sign_in: "login", sign_out: "logout"},
+             controllers: {omniauth_callbacks: "omniauth_callbacks"}
   resources :shop_users do
      collection do
-      get :user_login
+      get :change_user_password
     end
     end
   resources :chatboxes, params: :slug
@@ -12,6 +13,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'chatboxes#show'
   mount ActionCable.server => '/cable'
+
+  namespace :api do
+    get 'shop_user_api/get_user_info' => "shop_user_api#get_user_info"
+    end
+    match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+    match 'auth/failure', to: redirect('/'),via: [:get, :post, :patch,:delete]
+    match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post, :patch,:delete]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
