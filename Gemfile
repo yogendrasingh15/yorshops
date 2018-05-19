@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.1.4'
+gem 'rails', '5.2.0'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
-gem 'mysql2', '~> 0.4.9'
+gem 'mysql2', '~> 0.5.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -17,7 +17,7 @@ gem 'coffee-rails'
 gem 'puma', '~> 3.4'
 gem 'redis', '~> 4.0', '>= 4.0.1'
 gem 'omniauth'
-gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-facebook'
 gem 'figaro'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -30,7 +30,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'simple_form', '~> 3.5'
+gem 'simple_form', '~> 4.0'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -53,3 +53,4 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+

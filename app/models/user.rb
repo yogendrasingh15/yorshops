@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :messages
   has_many :chatboxes, through: :messages
-  validates :name, presence: true, uniqueness: true
+  # validates :name, presence: true, uniqueness: true
   devise :database_authenticatable, :registerable,:omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
          shop_keeper = 1

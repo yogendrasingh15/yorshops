@@ -66,6 +66,10 @@ class ShopUsersController < ApplicationController
     @user= User.find_by_id(params[:user_id])
     @user.update(password: params[:password],password_confirmation: params[:password_confirmation])
   end
+  
+  def contact_us
+    
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

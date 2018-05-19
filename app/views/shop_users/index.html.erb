@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
  <h2 class="heading" style="border:none"> Users Index</h2>
  <div class="pull-right">
-  <%= link_to new_shop_user_path, class: "btn btn-info right" do%>
-  <i class="fa fa-plus" aria-hidden="true"></i> New User
-  <% end %>
+  <%#= link_to new_shop_user_path, class: "btn btn-info right" do%>
+  <!-- <i class="fa fa-plus" aria-hidden="true"></i> New User -->
+  <%# end %>
+  <%= link_to "New Shop User", new_shop_user_path, class: "btn btn-info right"%>
 </div>
 <table class="table table-striped table-hover table-bordered">
 <thead class="bg-gray">

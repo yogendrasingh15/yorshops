@@ -1,0 +1,4 @@
+alert("successfully created!");
+$("#popup_div").hide();
+$(".modal-backdrop").attr("class","");
+$('#appointment_div').html("<%= escape_javascript(render 'appointment_list') %>");

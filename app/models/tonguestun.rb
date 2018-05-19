@@ -1,0 +1,2 @@
+class Tonguestun < ApplicationRecord
+end

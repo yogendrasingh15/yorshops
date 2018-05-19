@@ -16,9 +16,16 @@
 	</head>
 	<body>
 	<span class="pull-right">
-		<% if current_user.present?%>
+	<div id="user_nav">
+		<% if current_user %>
+			Welcome <strong><%= current_user.name %></strong>
+		<% else %>
+			 <strong>Welcome to Yorshops</strong>
+		<% end %>
+	</div>
+	<% if current_user.present?%>
 	<div class="dropdown">	
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.name%>
+		<a class="dropdown-toggle" style="color: blue;" data-toggle="dropdown" href="#"><%= current_user.name%>
 		<span class="caret"></span>
 		</a>
 		<ul class="dropdown-menu">
@@ -30,14 +37,6 @@
 		</ul>
 	</div>
 	<% end %>
-	<div id="user_nav">
-	  <% if current_user %>
-	    Signed in as <strong><%= current_user.name %></strong>!
-	    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-	  <% else %>
-	    
-	  <% end %>
-	</div>
 	</span>
 		<section style="text-align: center;float: right;width: 80%;">
 		<%if notice%>
@@ -60,11 +59,12 @@
 			
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li class="fh5co-active"><%= link_to "Home"%></li>
+					<li class="fh5co-active"><%= link_to "Home", home_index_shop_users_path %></li>
 					<li><%= link_to "Portfolio"%></li>
 					<li><%= link_to "About"%></li>
-					<li><%= link_to "Contact"%></li>
+					<li><%= link_to "Contact Us", contact_us_shop_users_path %></li>
 					<li><%= link_to "Users", shop_users_path %></li>
+					<li style=""><%= link_to "Doc Help", tonguestuns_path %></li>
 				</ul>
 			</nav>
 
@@ -91,4 +91,6 @@
 		$("#popup_div").modal('show');
 	}
 </script>
-
+<style type="text/css">
+	a:hover {background: yellow}
+</style>

@@ -1,0 +1,21 @@
+<div class="panel-body">
+<table class="table table-hover table-bordered">
+  <thead class="bg-gray">
+    <tr>
+      <th>Patient Name</th>
+      <th>Doctor Name</th>
+      <th>Dieseases</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appointments.each do |app| %>
+      <tr>
+        <td><%= app.patient.name %></td>
+        <td><%= app.doctor.name%></td>
+        <td><%= app.diseases%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

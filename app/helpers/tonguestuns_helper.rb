@@ -1,0 +1,2 @@
+module TonguestunsHelper
+end
