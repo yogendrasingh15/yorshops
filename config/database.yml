@@ -5,6 +5,7 @@ development:
   encoding: utf8
   username: root
   password: j2ee
+  socket: /tmp/mysql.sock
 
 test: &test
   adapter: mysql2
@@ -19,3 +20,4 @@ production: &production
   encoding: utf8
   username: root
   password: j2ee
+  pool: 5
