@@ -1,20 +1,21 @@
-
 default: &default
   adapter: mysql2
-  encoding: utf8
+  encoding: en_US.UTF-8
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  username: root
-  password: 
-  socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: yorshops
-
+  database: yorshops_development
+  
 test:
   <<: *default
-  database: yorshops
+  database: yorshops_test
 
 production:
   <<: *default
-  database: yorshops
+  database: yorshops_production
+  username: yorshops
+  password: yorshops_j2ee
+  url: "mysql://b1e51cf1fbd515:71837be5@us-cdbr-iron-east-04.cleardb.net/heroku_8837391e91dc987?reconnect=true"
